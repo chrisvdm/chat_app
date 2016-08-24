@@ -7,43 +7,43 @@
   </head>
   <body>
 
-    <ul id="messages"></ul>
-    <form action="">
-      <input id="m" autocomplete="off" /><button>Send</button>
-    </form>
+    <section id="messageWindow"></section>
 
     <script src="/socket.io/socket.io.js"></script>
+    <script src="static/js/react.js"></script>
+    <script src="static/js/react-dom.js"></script>
+    <script src="static/js/bundle.js"></script>
     <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
     <script>
       var socket = io();
 
-      $('#m').keydown(function() {
+      // $('#m').keydown(function() {
+      //
+      //   if($('#messages>li:last-of-type').text() !== 'User is typing') {
+      //     socket.emit('user typing');
+      //   }
+      //
+      // });
 
-        if($('#messages>li:last-of-type').text() !== 'User is typing') {
-          socket.emit('user typing');
-        }
-
-      });
-
-      $('form').submit(function() {
+      //$('form').submit(function() {
 
         //Sends the event 'chat message' to io socket
-        socket.emit('chat message', $('#m').val());
-        $('#m').val('');
-        return false;
+      //   socket.emit('chat message', $('#m').val());
+      //   $('#m').val('');
+      //   return false;
+      //
+      // });
 
-      });
+      // socket.on('chat message', function(msg){
+      //    $('#messages>li:last-of-type').remove();
+      //    $('#messages').append($('<li>').text(msg));
+      //  });
 
-      socket.on('chat message', function(msg){
-        $('#messages>li:last-of-type').remove();
-        $('#messages').append($('<li>').text(msg));
-      });
-
-      socket.on('user typing', function(){
-
-        $('#messages').append($('<li>').text('User is typing'));
-
-      });
+      // socket.on('user typing', function(){
+      //
+      //   $('#messages').append($('<li>').text('User is typing'));
+      //
+      // });
 
     </script>
 
