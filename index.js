@@ -3,6 +3,7 @@ var http = require('http').Server(app);
 
 //We define a route handler / that gets called when we hit our website home.
 app.get('/', function(req, res){
+  // frontend
   res.sendFile('index.html');
 });
 
