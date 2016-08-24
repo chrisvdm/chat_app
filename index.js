@@ -3,6 +3,9 @@ var app = express();
 var fs = require('fs');
 var http = require('http').Server(app);
 
+// instantiate socket.io
+var io = require('socket.io')(http);
+
 // Use this to serve static files like styling
 app.use('/static', express.static('static'));
 
@@ -10,6 +13,11 @@ app.use('/static', express.static('static'));
 app.get('/', function(req, res){
   // frontend
   res.sendFile(__dirname + '/index.html');
+});
+
+// Listen on connection event for incoming sockets
+io.on('connection', function(socket){
+  console.log('a user connected');
 });
 
 // Server port
