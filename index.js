@@ -23,8 +23,13 @@ io.on('connection', function(socket){
     console.log('user disconnected');
   });
 
+  // Sends instructions back to frontend
   socket.on('chat message', function(msg){
     io.emit('chat message', msg);
+  });
+
+  socket.on('user typing', function(){
+    io.emit('user typing');
   });
 });
 

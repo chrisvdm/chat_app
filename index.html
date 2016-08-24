@@ -17,15 +17,32 @@
     <script>
       var socket = io();
 
+      $('#m').keydown(function() {
+
+        if($('#messages>li:last-of-type').text() !== 'User is typing') {
+          socket.emit('user typing');
+        }
+
+      });
+
       $('form').submit(function() {
+
         //Sends the event 'chat message' to io socket
         socket.emit('chat message', $('#m').val());
         $('#m').val('');
         return false;
+
       });
 
       socket.on('chat message', function(msg){
+        $('#messages>li:last-of-type').remove();
         $('#messages').append($('<li>').text(msg));
+      });
+
+      socket.on('user typing', function(){
+
+        $('#messages').append($('<li>').text('User is typing'));
+
       });
 
     </script>
