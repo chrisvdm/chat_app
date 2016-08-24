@@ -73,6 +73,9 @@
 	    e.preventDefault();
 	    var msg = this.state.text.trim();
 
+	    if (!msg) {
+	      return;
+	    }
 	    // call to function that sends message
 	    this.props.onMessageSend({ text: msg });
 
@@ -131,7 +134,6 @@
 	  componentDidMount: function () {
 	    // Receive message
 	    socket.on('chat message', function (txt) {
-	      console.log(txt);
 	      this.setState({ data: txt });
 	    }.bind(this));
 	  },

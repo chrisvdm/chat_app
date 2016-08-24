@@ -21,6 +21,9 @@ var MessageForm = React.createClass({
     e.preventDefault();
     var msg = this.state.text.trim();
 
+    if(!msg) {
+      return;
+    }
     // call to function that sends message
     this.props.onMessageSend({text: msg});
 
