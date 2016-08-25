@@ -3,9 +3,12 @@
   <head>
     <meta charset="utf-8">
     <title>chat_app</title>
+    <meta name="google-signin-client_id" content="1066093657510-ubj4ou274seip5fithpv10jnoof4b6it.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
     <link rel="stylesheet" href="/static/css/main.css">
   </head>
   <body>
+    <div class="g-signin2" data-onsuccess="onSignIn"></div>
 
     <section id="messageWindow"></section>
 
@@ -25,25 +28,20 @@
       //
       // });
 
-      //$('form').submit(function() {
-
-        //Sends the event 'chat message' to io socket
-      //   socket.emit('chat message', $('#m').val());
-      //   $('#m').val('');
-      //   return false;
-      //
-      // });
-
-      // socket.on('chat message', function(msg){
-      //    $('#messages>li:last-of-type').remove();
-      //    $('#messages').append($('<li>').text(msg));
-      //  });
-
       // socket.on('user typing', function(){
       //
       //   $('#messages').append($('<li>').text('User is typing'));
       //
       // });
+
+      //Google sign in
+      function onSignIn(googleUser) {
+        var profile = googleUser.getBasicProfile();
+        console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+        console.log('Name: ' + profile.getName());
+        console.log('Image URL: ' + profile.getImageUrl());
+        console.log('Email: ' + profile.getEmail());
+      }
 
     </script>
 
