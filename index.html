@@ -88,7 +88,7 @@ function offset(el) {
 }
 
 window.addEventListener('scroll', function(){
-  console.log(offset(document.querySelector('.messageForm')));
+  document.querySelector('.messageForm input[type="text"]').val(offset(document.querySelector('.messageForm')));
 });
 
 // window.addEventListener('scroll', function(){

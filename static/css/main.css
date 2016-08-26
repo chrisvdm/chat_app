@@ -35,7 +35,6 @@ img {
 }
 
 .messageBox {
-  height: 120vh;
 }
 
 .messageBox h1 {
@@ -75,8 +74,8 @@ img {
 
 .messageForm input[type="submit"]{
   -webkit-appearance: none;
-   -moz-appearance: none;
-   appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   width: 20%;
   color: #fafafa;
   background-color:#00ffd9;
