@@ -45,7 +45,6 @@ img {
   padding: 0.625em;
   list-style: none;
   overflow: scroll;
-  /*z-index: 1;*/
 }
 
 .messageForm {

@@ -108,7 +108,3 @@ ReactDOM.render(
   <MessageBox />,
   document.getElementById('messageWindow')
 );
-
-//TODO: Implement Login
-//TODO: Add user profiles to chat messages
-//TODO: Add "User typing"

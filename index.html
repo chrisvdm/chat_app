@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="google-signin-client_id" content="1066093657510-ubj4ou274seip5fithpv10jnoof4b6it.apps.googleusercontent.com">
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <!-- <meta name="google-signin-client_id" content="1066093657510-ubj4ou274seip5fithpv10jnoof4b6it.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script> -->
     <title>chat_app</title>
     <link rel="stylesheet" href="/static/css/main.css">
   </head>
@@ -22,14 +22,6 @@
     <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
     <script>
       var socket = io();
-
-      // $('#m').keydown(function() {
-      //
-      //   if($('#messages>li:last-of-type').text() !== 'User is typing') {
-      //     socket.emit('user typing');
-      //   }
-      //
-      // });
 
       // socket.on('user typing', function(){
       //
@@ -54,79 +46,39 @@
       //   });
       // }
 
-      function getPosition(el) {
-        var xPos = 0;
-        var yPos = 0;
+      // Anonymous function to update the height of the .messageBox
+      (function() {
 
-        while (el) {
-          if (el.tagName == "BODY") {
-            // deal with browser quirks with body/window/document and page scroll
-            var xScroll = el.scrollLeft || document.documentElement.scrollLeft;
-            var yScroll = el.scrollTop || document.documentElement.scrollTop;
+        var is_keyboard = false;
+        var is_landscape = false;
+        var initial_screen_size = window.innerHeight;
 
-            xPos += (el.offsetLeft - xScroll + el.clientLeft);
-            yPos += (el.offsetTop - yScroll + el.clientTop);
-          } else {
-            // for all other non-BODY elements
-            xPos += (el.offsetLeft - el.scrollLeft + el.clientLeft);
-            yPos += (el.offsetTop - el.scrollTop + el.clientTop);
+        /* Android */
+        window.addEventListener("resize", function() {
+            is_keyboard = (window.innerHeight < initial_screen_size);
+            is_landscape = (screen.height < screen.width);
+
+            updateViews();
+        }, false);
+
+        /* iOS */
+        $("input").bind("focus blur",function() {
+            $(window).scrollTop(10);
+            is_keyboard = $(window).scrollTop() > 0;
+            $(window).scrollTop(0);
+            updateViews();
+        });
+
+        function updateViews() {
+          if (is_keyboard) {
+              $('.messageBox').innerHeight('49vh');
           }
-
-          el = el.offsetParent;
+          else {
+            $('.messageBox').innerHeight('100vh');
+          }
         }
-        return {
-          x: xPos,
-          y: yPos
-        };
-      }
 
-function offset(el) {
-    var rect = el.getBoundingClientRect(),
-    scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
-    scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    return { top: rect.top + scrollTop, left: rect.left + scrollLeft }
-}
-
-// $('.messageForm input[type="text"]').
-
-// $(window).scroll(function(){
-//   $('.messageForm input[type="text"]')
-//   .val(offset($('.messageForm')));
-// });
-
-// window.addEventListener('scroll', function(){
-//   console.log(getPosition(document.querySelector('.messageForm')));
-// });
-
-var is_keyboard = false;
-var is_landscape = false;
-var initial_screen_size = window.innerHeight;
-
-/* Android */
-window.addEventListener("resize", function() {
-    is_keyboard = (window.innerHeight < initial_screen_size);
-    is_landscape = (screen.height < screen.width);
-
-    updateViews();
-}, false);
-
-/* iOS */
-$("input").bind("focus blur",function() {
-    $(window).scrollTop(10);
-    is_keyboard = $(window).scrollTop() > 0;
-    $(window).scrollTop(0);
-    updateViews();
-});
-
-function updateViews() {
-    if (is_keyboard) {
-        $('.messageBox').innerHeight('49vh');
-    }
-    else {
-      $('.messageBox').innerHeight('100vh');
-    }
-}
-
+      })();
 
     </script>
 

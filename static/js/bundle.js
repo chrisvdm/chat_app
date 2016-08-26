@@ -165,6 +165,10 @@
 
 	ReactDOM.render(React.createElement(MessageBox, null), document.getElementById('messageWindow'));
 
+	//TODO: Implement Login
+	//TODO: Add user profiles to chat messages
+	//TODO: Add "User typing"
+
 /***/ },
 /* 1 */
 /***/ function(module, exports, __webpack_require__) {
