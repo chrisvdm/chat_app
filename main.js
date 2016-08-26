@@ -28,7 +28,7 @@ var MessageForm = React.createClass({
     this.props.onMessageSend({text: msg});
 
     // clears input field
-    this.setState({text:''});
+    this.setState({text: ''});
   },
   render: function() {
     return (
@@ -69,11 +69,8 @@ var MessageBox = React.createClass({
   getInitialState: function() {
     return {data: []};
   },
-  loadComponent: function() {
-    // TODO: activate setState
-  },
   getServerData: function() {
-    //TODO Get old from server to display
+    //TODO Get old msgs from server to display
   },
   componentDidMount: function() {
     // Receive message
@@ -90,13 +87,10 @@ var MessageBox = React.createClass({
     socket.emit('chat message', newMessages);
 
   },
-  handleMessageReceive: function() {
-    // TODO: Add received message to data
-  },
   render: function() {
     return (
       <div className="messageBox">
-        <h1>Friend</h1>
+        <h1>user_name</h1>
         <MessageList data={this.state.data}/>
         <MessageForm onMessageSend={this.handleMessageSend} />
       </div>

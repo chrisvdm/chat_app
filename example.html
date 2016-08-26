@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <!-- <meta name="google-signin-client_id" content="1066093657510-ubj4ou274seip5fithpv10jnoof4b6it.apps.googleusercontent.com">
+  <script src="https://apis.google.com/js/platform.js" async defer></script> -->
+  <title>chat_app layout</title>
+  <link rel="stylesheet" href="static/css/main.css">
+</head>
+  <body>
+
+    <section id="messageWindow">
+
+      <div class="messageBox">
+
+        <h1>user_name</h1>
+
+        <ul class="messageList">
+          <li>Message 1</li>
+          <li>Message 2</li>
+          <li>Message 3</li>
+          <li>Message 4</li>
+        </ul>
+      </div>
+
+      <form class="messageForm">
+        <input type="text" placeholder="Type message">
+        <input type="submit">
+      </form>
+
+    </section>
+
+    <!-- <script src="/socket.io/socket.io.js"></script>
+    <script src="static/js/react.js"></script>
+    <script src="static/js/react-dom.js"></script>
+    <script src="static/js/bundle.js"></script> -->
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+    <script>
+      // var socket = io();
+      // Anonymous function to update the height of the .messageBox
+      (function() {
+
+        var is_keyboard = false;
+        var is_landscape = false;
+        var initial_screen_size = window.innerHeight;
+
+        /* Android */
+        window.addEventListener("resize", function() {
+            is_keyboard = (window.innerHeight < initial_screen_size);
+            is_landscape = (screen.height < screen.width);
+
+            updateViews();
+        }, false);
+
+        /* iOS */
+        $("input").bind("focus blur",function() {
+            $(window).scrollTop(10);
+            is_keyboard = $(window).scrollTop() > 0;
+            $(window).scrollTop(0);
+            updateViews();
+        });
+
+        function updateViews() {
+          if (is_keyboard) {
+              $('.messageBox').innerHeight('49vh');
+          }
+          else {
+            $('.messageBox').innerHeight('100vh');
+          }
+        }
+
+      })();
+
+    </script>
+
+  </body>
+</html>
