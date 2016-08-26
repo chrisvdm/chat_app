@@ -41,7 +41,7 @@ var MessageForm = React.createClass({
       />
       <input
       type="submit"
-      value="Send Message"
+      value="Send"
       />
     </form>
     );

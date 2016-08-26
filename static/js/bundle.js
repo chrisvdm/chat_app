@@ -94,7 +94,7 @@
 	      }),
 	      React.createElement('input', {
 	        type: 'submit',
-	        value: 'Send Message'
+	        value: 'Send'
 	      })
 	    );
 	  }
