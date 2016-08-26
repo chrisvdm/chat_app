@@ -87,13 +87,45 @@ function offset(el) {
     return { top: rect.top + scrollTop, left: rect.left + scrollLeft }
 }
 
-window.addEventListener('scroll', function(){
-  document.querySelector('.messageForm input[type="text"]').val(offset(document.querySelector('.messageForm')));
-});
+// $('.messageForm input[type="text"]').
+
+// $(window).scroll(function(){
+//   $('.messageForm input[type="text"]')
+//   .val(offset($('.messageForm')));
+// });
 
 // window.addEventListener('scroll', function(){
 //   console.log(getPosition(document.querySelector('.messageForm')));
 // });
+
+var is_keyboard = false;
+var is_landscape = false;
+var initial_screen_size = window.innerHeight;
+
+/* Android */
+window.addEventListener("resize", function() {
+    is_keyboard = (window.innerHeight < initial_screen_size);
+    is_landscape = (screen.height < screen.width);
+
+    updateViews();
+}, false);
+
+/* iOS */
+$("input").bind("focus blur",function() {
+    $(window).scrollTop(10);
+    is_keyboard = $(window).scrollTop() > 0;
+    $(window).scrollTop(0);
+    updateViews();
+});
+
+function updateViews() {
+    if (is_keyboard) {
+        $('.messageBox').innerHeight('49vh');
+    }
+    else {
+      $('.messageBox').innerHeight('100vh');
+    }
+}
 
 
     </script>

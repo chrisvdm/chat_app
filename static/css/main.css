@@ -35,9 +35,8 @@ img {
 }
 
 .messageBox {
-}
-
-.messageBox h1 {
+  height: 100vh;
+  position: relative;
 }
 
 .messageList {
@@ -46,8 +45,7 @@ img {
   padding: 0.625em;
   list-style: none;
   overflow: scroll;
-  position: relative;
-  z-index: 1;
+  /*z-index: 1;*/
 }
 
 .messageForm {
@@ -57,7 +55,6 @@ img {
   position: absolute;
   bottom: 0;
   left: 0;
-  z-index: 3;
 }
 
 .messageForm input {
