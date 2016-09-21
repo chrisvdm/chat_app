@@ -2,6 +2,24 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 var socket = io();
 
+var MessageApp = React.createClass({
+  getInitialState: function() {
+  return  {
+      name: '',
+      img: '',
+      id: ''
+    };
+  },
+  componentDidMount: function() {
+
+  },
+  render: function() {
+    return (
+      <MessageBox userInfo={this.state} />
+    );
+  }
+});
+
 var Message = React.createClass({
   render: function() {
     return (

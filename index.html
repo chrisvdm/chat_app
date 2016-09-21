@@ -30,55 +30,21 @@
       // });
 
       //Google sign in
-      // function onSignIn(googleUser) {
-      //   var profile = googleUser.getBasicProfile();
-      //   console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-      //   console.log('Name: ' + profile.getName());
-      //   console.log('Image URL: ' + profile.getImageUrl());
-      //   console.log('Email: ' + profile.getEmail());
-      // }
-      //
-      // // Google sign out
-      // function signOut() {
-      //   var auth2 = gapi.auth2.getAuthInstance();
-      //   auth2.signOut().then(function () {
-      //     console.log('User signed out.');
-      //   });
-      // }
+      function onSignIn(googleUser) {
+        var profile = googleUser.getBasicProfile();
+        console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+        console.log('Name: ' + profile.getName());
+        console.log('Image URL: ' + profile.getImageUrl());
+        console.log('Email: ' + profile.getEmail());
+      }
 
-      // Anonymous function to update the height of the .messageBox
-      (function() {
-
-        var is_keyboard = false;
-        var is_landscape = false;
-        var initial_screen_size = window.innerHeight;
-
-        /* Android */
-        window.addEventListener("resize", function() {
-            is_keyboard = (window.innerHeight < initial_screen_size);
-            is_landscape = (screen.height < screen.width);
-
-            updateViews();
-        }, false);
-
-        /* iOS */
-        $("input").bind("focus blur",function() {
-            $(window).scrollTop(10);
-            is_keyboard = $(window).scrollTop() > 0;
-            $(window).scrollTop(0);
-            updateViews();
+      // Google sign out
+      function signOut() {
+        var auth2 = gapi.auth2.getAuthInstance();
+        auth2.signOut().then(function () {
+          console.log('User signed out.');
         });
-
-        function updateViews() {
-          if (is_keyboard) {
-              $('.messageBox').innerHeight('49vh');
-          }
-          else {
-            $('.messageBox').innerHeight('100vh');
-          }
-        }
-
-      })();
+      }
 
     </script>
 

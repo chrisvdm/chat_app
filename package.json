@@ -7,7 +7,7 @@
     "babel-loader": "^6.2.5",
     "babel-preset-react": "^6.11.1",
     "express": "^4.10.2",
-    "react": "^15.3.1",
+    "react": "^15.3.2",
     "react-dom": "^15.3.1",
     "socket.io": "^1.4.8"
   },

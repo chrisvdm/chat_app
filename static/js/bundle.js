@@ -48,6 +48,22 @@
 	var ReactDOM = __webpack_require__(34);
 	var socket = io();
 
+	var MessageApp = React.createClass({
+	  displayName: 'MessageApp',
+
+	  getInitialState: function () {
+	    return {
+	      name: '',
+	      img: '',
+	      id: ''
+	    };
+	  },
+	  componentDidMount: function () {},
+	  render: function () {
+	    return React.createElement(MessageBox, { userInfo: this.state });
+	  }
+	});
+
 	var Message = React.createClass({
 	  displayName: 'Message',
 
@@ -125,11 +141,8 @@
 	  getInitialState: function () {
 	    return { data: [] };
 	  },
-	  loadComponent: function () {
-	    // TODO: activate setState
-	  },
 	  getServerData: function () {
-	    //TODO Get old from server to display
+	    //TODO Get old msgs from server to display
 	  },
 	  componentDidMount: function () {
 	    // Receive message
@@ -145,9 +158,6 @@
 	    // Send message to others
 	    socket.emit('chat message', newMessages);
 	  },
-	  handleMessageReceive: function () {
-	    // TODO: Add received message to data
-	  },
 	  render: function () {
 	    return React.createElement(
 	      'div',
@@ -155,7 +165,7 @@
 	      React.createElement(
 	        'h1',
 	        null,
-	        'Friend'
+	        'user_name'
 	      ),
 	      React.createElement(MessageList, { data: this.state.data }),
 	      React.createElement(MessageForm, { onMessageSend: this.handleMessageSend })
@@ -164,10 +174,6 @@
 	});
 
 	ReactDOM.render(React.createElement(MessageBox, null), document.getElementById('messageWindow'));
-
-	//TODO: Implement Login
-	//TODO: Add user profiles to chat messages
-	//TODO: Add "User typing"
 
 /***/ },
 /* 1 */
