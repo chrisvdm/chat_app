@@ -1,7 +1,8 @@
 {
-  "name": "socket-chat-example",
+  "name": "chat_app",
   "version": "0.0.1",
-  "description": "my first socket.io app",
+  "description": "Web chat application",
+  "private": true
   "dependencies": {
     "babel-core": "^6.13.2",
     "babel-loader": "^6.2.5",
