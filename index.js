@@ -1,39 +1,11 @@
-var express = require('express');
-var app = express();
-var fs = require('fs');
-var http = require('http').Server(app);
+import React from 'react';
+import { render } from 'react-dom';
+import { Router, browserHistory } from 'react-router';
 
-// instantiate socket.io
-var io = require('socket.io')(http);
+// import routes and pass them into <Router/>
+import routes from './modules/routes';
 
-// Use this to serve static files like styling
-app.use('/static', express.static('static'));
-
-//We define a route handler / that gets called when we hit our website home.
-app.get('/', function(req, res){
-  // frontend
-  res.sendFile(__dirname + '/index.html');
-});
-
-// Listen on connection event for incoming sockets
-io.on('connection', function(socket){
-  console.log('a user connected');
-  // Listens for when a user disconnects
-  socket.on('disconnect', function(){
-    console.log('user disconnected');
-  });
-
-  // Sends instructions back to frontend
-  socket.on('chat message', function(msg){
-    io.emit('chat message', msg);
-  });
-
-  socket.on('user typing', function(){
-    io.emit('user typing');
-  });
-});
-
-// Server port
-http.listen(3000, function(){
-  console.log('listening on *:3000');
-});
+render(
+  <Router routes={routes} history={browserHistory}/>,
+  document.getElementById('app')
+);
