@@ -13,5 +13,8 @@
   },
   "devDependencies": {
     "webpack": "^1.13.2"
+  },
+  "scripts": {
+    "start": "webpack app.js bundle.js --module-bind 'js=babel-loader' node index.js"
   }
 }

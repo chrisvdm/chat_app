@@ -1,5 +1,8 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
+// Move React stuff to index.js
+
+
 var socket = io();
 
 var MessageApp = React.createClass({
@@ -115,8 +118,3 @@ var MessageBox = React.createClass({
     );
   }
 });
-
-ReactDOM.render(
-  <MessageBox />,
-  document.getElementById('messageWindow')
-);
