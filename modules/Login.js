@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import { browserHistory } from 'react-router'
 
 export default React.createClass({
   getInitialState: function(){
@@ -14,7 +15,16 @@ export default React.createClass({
   handleLogin: function(e) {
     e.preventDefault();
 
-    console.log('username:' + this.state.usr);
+    var username = this.state.usr.trim();
+    var password = this.state.pw.trim();
+     if(!username && password) {
+       return;
+     }
+
+     var newPath = '/' +username;
+
+    browserHistory.push(newPath);
+    this.setState({usr: '', pw:''});
   },
   render: function() {
     return (

@@ -27401,7 +27401,8 @@
 	  _reactRouter.Route,
 	  { path: '/', component: _App2.default },
 	  _react2.default.createElement(_reactRouter.IndexRoute, { component: _Home2.default }),
-	  _react2.default.createElement(_reactRouter.Route, { path: '/login', component: _Login2.default })
+	  _react2.default.createElement(_reactRouter.Route, { path: '/login', component: _Login2.default }),
+	  _react2.default.createElement(_reactRouter.Route, { path: '/:userName', component: _MessageBox2.default })
 	);
 
 /***/ },
@@ -27570,7 +27571,16 @@
 	  handleLogin: function handleLogin(e) {
 	    e.preventDefault();
 
-	    console.log('username:' + this.state.usr);
+	    var username = this.state.usr.trim();
+	    var password = this.state.pw.trim();
+	    if (!username && password) {
+	      return;
+	    }
+
+	    var newPath = '/' + username;
+
+	    _reactRouter.browserHistory.push(newPath);
+	    this.setState({ usr: '', pw: '' });
 	  },
 	  render: function render() {
 	    return _react2.default.createElement(
@@ -27693,7 +27703,7 @@
 	      _react2.default.createElement(
 	        'h1',
 	        null,
-	        'user_name'
+	        this.props.params.userName
 	      ),
 	      _react2.default.createElement(_MessageList2.default, { data: this.state.data }),
 	      _react2.default.createElement(_MessageForm2.default, { onMessageSend: this.handleMessageSend })

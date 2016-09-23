@@ -10,5 +10,6 @@ module.exports = (
   <Route path="/" component={App}>
     <IndexRoute component={Home}/>
     <Route path="/login" component={Login}/>
+    <Route path="/:userName" component={MessageBox}/>
   </Route>
 );

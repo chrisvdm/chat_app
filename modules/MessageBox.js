@@ -31,7 +31,7 @@ export default React.createClass({
   render: function() {
     return (
       <div className="messageBox">
-        <h1>user_name</h1>
+        <h1>{this.props.params.userName}</h1>
         <MessageList data={this.state.data}/>
         <MessageForm onMessageSend={this.handleMessageSend} />
       </div>
