@@ -27387,7 +27387,11 @@
 
 	var _Home2 = _interopRequireDefault(_Home);
 
-	var _MessageBox = __webpack_require__(239);
+	var _Login = __webpack_require__(239);
+
+	var _Login2 = _interopRequireDefault(_Login);
+
+	var _MessageBox = __webpack_require__(240);
 
 	var _MessageBox2 = _interopRequireDefault(_MessageBox);
 
@@ -27397,7 +27401,7 @@
 	  _reactRouter.Route,
 	  { path: '/', component: _App2.default },
 	  _react2.default.createElement(_reactRouter.IndexRoute, { component: _Home2.default }),
-	  _react2.default.createElement(_reactRouter.Route, { path: '/login', component: _MessageBox2.default })
+	  _react2.default.createElement(_reactRouter.Route, { path: '/login', component: _Login2.default })
 	);
 
 /***/ },
@@ -27504,21 +27508,30 @@
 	  render: function render() {
 	    return _react2.default.createElement(
 	      'section',
-	      null,
+	      { className: 'box' },
 	      _react2.default.createElement(
 	        'h1',
 	        null,
-	        'Welcome'
+	        '#chatApp'
 	      ),
 	      _react2.default.createElement(
-	        _reactRouter.Link,
-	        { className: 'btn btn-border', to: '/login' },
-	        'Login'
+	        'p',
+	        null,
+	        'Login or signup to start chatting to your friends'
 	      ),
 	      _react2.default.createElement(
-	        _reactRouter.Link,
-	        { className: 'btn btn-fill', to: '/signup' },
-	        'Signup'
+	        'div',
+	        { className: 'btn-set' },
+	        _react2.default.createElement(
+	          _reactRouter.Link,
+	          { className: 'btn btn-border', to: '/login' },
+	          'Login'
+	        ),
+	        _react2.default.createElement(
+	          _reactRouter.Link,
+	          { className: 'btn btn-fill', to: '/signup' },
+	          'Signup'
+	        )
 	      )
 	    );
 	  }
@@ -27538,11 +27551,84 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _MessageList = __webpack_require__(240);
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _react2.default.createClass({
+	  displayName: 'Login',
+
+	  getInitialState: function getInitialState() {
+	    return { usr: '', pw: '' };
+	  },
+	  handleUsrChange: function handleUsrChange(e) {
+	    this.setState({ usr: e.target.value });
+	  },
+	  handlePwChange: function handlePwChange(e) {
+	    this.setState({ pw: e.target.value });
+	  },
+	  handleLogin: function handleLogin(e) {
+	    e.preventDefault();
+
+	    console.log('username:' + this.state.usr);
+	  },
+	  render: function render() {
+	    return _react2.default.createElement(
+	      'section',
+	      { className: 'box' },
+	      _react2.default.createElement(
+	        'h1',
+	        null,
+	        '#chatApp'
+	      ),
+	      _react2.default.createElement(
+	        'h2',
+	        null,
+	        'Login'
+	      ),
+	      _react2.default.createElement(
+	        'p',
+	        null,
+	        'Fill in your username and password'
+	      ),
+	      _react2.default.createElement(
+	        'form',
+	        { onSubmit: this.handleLogin },
+	        _react2.default.createElement('input', { type: 'text',
+	          placeholder: 'user_name',
+	          value: this.state.usr,
+	          onChange: this.handleUsrChange }),
+	        _react2.default.createElement('input', { type: 'password',
+	          placeholder: 'password',
+	          value: this.state.pw,
+	          onChange: this.handlePwChange }),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'btn-set' },
+	          _react2.default.createElement('input', { className: 'btn btn-fill', type: 'submit' })
+	        )
+	      )
+	    );
+	  }
+	});
+
+/***/ },
+/* 240 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _MessageList = __webpack_require__(241);
 
 	var _MessageList2 = _interopRequireDefault(_MessageList);
 
-	var _MessageForm = __webpack_require__(242);
+	var _MessageForm = __webpack_require__(243);
 
 	var _MessageForm2 = _interopRequireDefault(_MessageForm);
 
@@ -27593,7 +27679,7 @@
 	});
 
 /***/ },
-/* 240 */
+/* 241 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27606,7 +27692,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Message = __webpack_require__(241);
+	var _Message = __webpack_require__(242);
 
 	var _Message2 = _interopRequireDefault(_Message);
 
@@ -27634,7 +27720,7 @@
 	// Custom components
 
 /***/ },
-/* 241 */
+/* 242 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27662,7 +27748,7 @@
 	});
 
 /***/ },
-/* 242 */
+/* 243 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';

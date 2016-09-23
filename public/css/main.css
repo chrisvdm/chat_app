@@ -34,6 +34,43 @@ img {
   padding: 0;
 }
 
+.box h1 {
+  letter-spacing: 2px;
+  font-size: 5em;
+}
+
+.box {
+  transform: translateY(25%);
+  color: #fff;
+  background: #f7e7f2;
+  margin: 0 auto;
+  width: 40%;
+  min-height: 50vh;
+  text-align: center;
+  border: solid 5px #fff;
+  padding: 2.5em;
+}
+
+.box .btn-set {
+  margin-top: 5em;
+  display: block;
+}
+
+.box form .btn-set {
+  margin-top: 1.25em;
+}
+
+.box form {
+  width: 65%;
+  margin: 0 auto;
+}
+
+.box form input[type="text"], .box form input[type="password"] {
+  width: 100%;
+  margin-top: 0.625em;
+  padding: 0.3125em;
+}
+
 .messageBox {
   height: 100vh;
   position: relative;
@@ -86,8 +123,8 @@ img {
 }
 
 .btn-border {
-  border: 2px solid #ccc;
-  color: #ccc;
+  border: 2px solid #fff;
+  color: #fff;
 }
 
 .btn-fill {
@@ -113,12 +150,13 @@ img {
 }
 
 .btn-fill:hover {
-  background: #d9d9d9;
-  border: 2px solid #d9d9d9 ;
+  background: #fff;
+  border: 2px solid #fff ;
+  color: #f7e7f2;
 }
 
 .btn:hover {
-  box-shadow: 2px 2px 0 #ccc;
+  cursor: pointer;
 }
 
 a.btn {

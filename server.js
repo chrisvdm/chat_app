@@ -10,7 +10,7 @@ var io = require('socket.io')(http);
 app.use('/public', express.static('public'));
 
 //We define a route handler / that gets called when we hit our website home.
-app.get('/', function(req, res){
+app.get('*', function(req, res){
   // frontend
   res.sendFile(__dirname + '/index.html');
 });
