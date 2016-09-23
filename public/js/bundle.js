@@ -27573,8 +27573,8 @@
 
 	    var username = this.state.usr.trim();
 	    var password = this.state.pw.trim();
-	    if (!username && password) {
-	      return;
+	    if (username === '' && password === '') {
+	      _reactRouter.browserHistory.push('/');
 	    }
 
 	    var newPath = '/' + username;
@@ -27706,7 +27706,7 @@
 	        this.props.params.userName
 	      ),
 	      _react2.default.createElement(_MessageList2.default, { data: this.state.data }),
-	      _react2.default.createElement(_MessageForm2.default, { onMessageSend: this.handleMessageSend })
+	      _react2.default.createElement(_MessageForm2.default, { onMessageSend: this.handleMessageSend, data: this.props.params.userName })
 	    );
 	  }
 	});
@@ -27738,7 +27738,7 @@
 	    var msgLs = this.props.data.map(function (msg) {
 	      return _react2.default.createElement(
 	        _Message2.default,
-	        { key: msg.id },
+	        { key: msg.id, user: msg.usr },
 	        msg.text
 	      );
 	    });
@@ -27756,7 +27756,7 @@
 /* 242 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -27769,13 +27769,22 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	exports.default = _react2.default.createClass({
-	  displayName: 'Message',
+	  displayName: "Message",
 
 	  render: function render() {
 	    return _react2.default.createElement(
-	      'li',
+	      "li",
 	      null,
-	      this.props.children
+	      _react2.default.createElement(
+	        "div",
+	        { className: "usr-box" },
+	        this.props.user
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "msg-box" },
+	        this.props.children
+	      )
 	    );
 	  }
 	});
@@ -27812,9 +27821,9 @@
 	    if (!msg) {
 	      return;
 	    }
-
+	    var sender = this.props.data;
 	    // call to function that sends message
-	    this.props.onMessageSend({ text: msg });
+	    this.props.onMessageSend({ usr: sender, text: msg });
 
 	    // clears input field
 	    this.setState({ text: '' });

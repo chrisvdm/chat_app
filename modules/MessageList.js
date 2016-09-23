@@ -7,7 +7,7 @@ export default React.createClass({
   render: function() {
     var msgLs = this.props.data.map(function(msg) {
       return (
-        <Message key={msg.id}>
+        <Message key={msg.id} user={msg.usr}>
           {msg.text}
         </Message>
       );

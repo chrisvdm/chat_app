@@ -17,8 +17,8 @@ export default React.createClass({
 
     var username = this.state.usr.trim();
     var password = this.state.pw.trim();
-     if(!username && password) {
-       return;
+     if(username === '' && password === '') {
+       browserHistory.push('/');
      }
 
      var newPath = '/' +username;

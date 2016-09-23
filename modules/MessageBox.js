@@ -33,7 +33,7 @@ export default React.createClass({
       <div className="messageBox">
         <h1>{this.props.params.userName}</h1>
         <MessageList data={this.state.data}/>
-        <MessageForm onMessageSend={this.handleMessageSend} />
+        <MessageForm onMessageSend={this.handleMessageSend} data={this.props.params.userName}/>
       </div>
     );
   }

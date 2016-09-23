@@ -14,9 +14,9 @@ export default React.createClass({
     if(!msg) {
       return;
     }
-
+    var sender = this.props.data;
     // call to function that sends message
-    this.props.onMessageSend({text: msg});
+    this.props.onMessageSend({usr: sender, text: msg});
 
     // clears input field
     this.setState({text: ''});

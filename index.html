@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <!-- <meta name="google-signin-client_id" content="1066093657510-ubj4ou274seip5fithpv10jnoof4b6it.apps.googleusercontent.com">
-    <script src="https://apis.google.com/js/platform.js" async defer></script> -->
+    <meta name="google-signin-client_id" content="1066093657510-ubj4ou274seip5fithpv10jnoof4b6it.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
     <title>chat_app</title>
     <link rel="stylesheet" href="/public/css/main.css">
   </head>
@@ -28,23 +28,6 @@
       //   $('#messages').append($('<li>').text('User is typing'));
       //
       // });
-
-      //Google sign in
-      function onSignIn(googleUser) {
-        var profile = googleUser.getBasicProfile();
-        console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-        console.log('Name: ' + profile.getName());
-        console.log('Image URL: ' + profile.getImageUrl());
-        console.log('Email: ' + profile.getEmail());
-      }
-
-      // Google sign out
-      function signOut() {
-        var auth2 = gapi.auth2.getAuthInstance();
-        auth2.signOut().then(function () {
-          console.log('User signed out.');
-        });
-      }
 
     </script>
 

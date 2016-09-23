@@ -90,6 +90,10 @@ img {
   border-bottom: solid 2px #b9dddf;
 }
 
+.usr-box {
+  font-weight: 600;
+}
+
 .messageBox {
   height: 100vh;
   position: relative;
@@ -101,6 +105,10 @@ img {
   padding: 0.625em;
   list-style: none;
   overflow: scroll;
+}
+
+.messageList li {
+  margin-bottom: 1.25em;
 }
 
 .messageForm {
