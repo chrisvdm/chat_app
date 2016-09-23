@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 export default React.createClass({
   getInitialState: function(){
@@ -19,10 +20,11 @@ export default React.createClass({
     return (
       <section className="box">
         <h1>#chatApp</h1>
-        <h2>Login</h2>
-        <p>Fill in your username and password</p>
 
         <form onSubmit={this.handleLogin}>
+          <h2>Login</h2>
+          <p>Fill in your username and password</p>
+
           <input type="text"
           placeholder="user_name"
           value={this.state.usr}
@@ -33,8 +35,13 @@ export default React.createClass({
           onChange={this.handlePwChange}/>
 
           <div className="btn-set">
-            <input className="btn btn-fill" type="submit"/>
+            <Link className="btn btn-border" to="/">Cancel</Link>
+            <input className="btn btn-fill" type="submit" value="Login"/>
           </div>
+
+          <p className="small-print"><Link to="/lost-password">Lost password/username?</Link>
+           Or do you need to <Link to="/signup">signup</Link>?</p>
+
 
         </form>
       </section>

@@ -27551,6 +27551,8 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _reactRouter = __webpack_require__(172);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	exports.default = _react2.default.createClass({
@@ -27580,18 +27582,18 @@
 	        '#chatApp'
 	      ),
 	      _react2.default.createElement(
-	        'h2',
-	        null,
-	        'Login'
-	      ),
-	      _react2.default.createElement(
-	        'p',
-	        null,
-	        'Fill in your username and password'
-	      ),
-	      _react2.default.createElement(
 	        'form',
 	        { onSubmit: this.handleLogin },
+	        _react2.default.createElement(
+	          'h2',
+	          null,
+	          'Login'
+	        ),
+	        _react2.default.createElement(
+	          'p',
+	          null,
+	          'Fill in your username and password'
+	        ),
 	        _react2.default.createElement('input', { type: 'text',
 	          placeholder: 'user_name',
 	          value: this.state.usr,
@@ -27603,7 +27605,28 @@
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'btn-set' },
-	          _react2.default.createElement('input', { className: 'btn btn-fill', type: 'submit' })
+	          _react2.default.createElement(
+	            _reactRouter.Link,
+	            { className: 'btn btn-border', to: '/' },
+	            'Cancel'
+	          ),
+	          _react2.default.createElement('input', { className: 'btn btn-fill', type: 'submit', value: 'Login' })
+	        ),
+	        _react2.default.createElement(
+	          'p',
+	          { className: 'small-print' },
+	          _react2.default.createElement(
+	            _reactRouter.Link,
+	            { to: '/lost-password' },
+	            'Lost password/username?'
+	          ),
+	          'Or do you need to ',
+	          _react2.default.createElement(
+	            _reactRouter.Link,
+	            { to: '/signup' },
+	            'signup'
+	          ),
+	          '?'
 	        )
 	      )
 	    );
