@@ -84,3 +84,49 @@ img {
   width: 80%;
   margin: 0 auto;
 }
+
+.btn-border {
+  border: 2px solid #ccc;
+  color: #ccc;
+}
+
+.btn-fill {
+  background: #b9dddf;
+  border: 2px solid #b9dddf ;
+  color: #fff;
+}
+
+.btn {
+  padding: 0.625em;
+  display: inline-block;
+  letter-spacing: 2px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: none;
+  margin-left: 0.625em;
+  transition: 0.25s ease;
+}
+
+.btn-border:hover {
+  color: #b9dddf;
+  border: solid 2px #b9dddf;
+}
+
+.btn-fill:hover {
+  background: #d9d9d9;
+  border: 2px solid #d9d9d9 ;
+}
+
+.btn:hover {
+  box-shadow: 2px 2px 0 #ccc;
+}
+
+a.btn {
+  text-decoration: none;
+}
+
+/* MODIFIERS */
+
+.active {
+  color: #ccc;
+}

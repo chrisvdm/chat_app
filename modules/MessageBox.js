@@ -27,7 +27,6 @@ export default React.createClass({
 
     // Send message to others
     socket.emit('chat message', newMessages);
-
   },
   render: function() {
     return (

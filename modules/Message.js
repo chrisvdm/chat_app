@@ -1,6 +1,6 @@
 import React from 'react';
 
-var Message = React.createClass({
+export default React.createClass({
   render: function() {
     return (
       <li>{this.props.children}</li>

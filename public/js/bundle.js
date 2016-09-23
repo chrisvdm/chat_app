@@ -54,7 +54,7 @@
 
 	var _reactRouter = __webpack_require__(172);
 
-	var _routes = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./modules/routes\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	var _routes = __webpack_require__(235);
 
 	var _routes2 = _interopRequireDefault(_routes);
 
@@ -27366,6 +27366,357 @@
 
 	exports.default = (0, _createRouterHistory2.default)(_createHashHistory2.default);
 	module.exports = exports['default'];
+
+/***/ },
+/* 235 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(172);
+
+	var _App = __webpack_require__(236);
+
+	var _App2 = _interopRequireDefault(_App);
+
+	var _Home = __webpack_require__(238);
+
+	var _Home2 = _interopRequireDefault(_Home);
+
+	var _MessageBox = __webpack_require__(239);
+
+	var _MessageBox2 = _interopRequireDefault(_MessageBox);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	module.exports = _react2.default.createElement(
+	  _reactRouter.Route,
+	  { path: '/', component: _App2.default },
+	  _react2.default.createElement(_reactRouter.IndexRoute, { component: _Home2.default }),
+	  _react2.default.createElement(_reactRouter.Route, { path: '/login', component: _MessageBox2.default })
+	);
+
+/***/ },
+/* 236 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _NavLink = __webpack_require__(237);
+
+	var _NavLink2 = _interopRequireDefault(_NavLink);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var App = function (_Component) {
+	  _inherits(App, _Component);
+
+	  function App() {
+	    _classCallCheck(this, App);
+
+	    return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
+	  }
+
+	  _createClass(App, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        this.props.children
+	      );
+	    }
+	  }]);
+
+	  return App;
+	}(_react.Component);
+
+	exports.default = App;
+
+/***/ },
+/* 237 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(172);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _react2.default.createClass({
+	  displayName: 'NavLink',
+	  render: function render() {
+	    return _react2.default.createElement(_reactRouter.Link, _extends({}, this.props, { activeClassName: 'active' }));
+	  }
+	});
+
+/***/ },
+/* 238 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(172);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _react2.default.createClass({
+	  displayName: 'Home',
+
+	  render: function render() {
+	    return _react2.default.createElement(
+	      'section',
+	      null,
+	      _react2.default.createElement(
+	        'h1',
+	        null,
+	        'Welcome'
+	      ),
+	      _react2.default.createElement(
+	        _reactRouter.Link,
+	        { className: 'btn btn-border', to: '/login' },
+	        'Login'
+	      ),
+	      _react2.default.createElement(
+	        _reactRouter.Link,
+	        { className: 'btn btn-fill', to: '/signup' },
+	        'Signup'
+	      )
+	    );
+	  }
+	});
+
+/***/ },
+/* 239 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _MessageList = __webpack_require__(240);
+
+	var _MessageList2 = _interopRequireDefault(_MessageList);
+
+	var _MessageForm = __webpack_require__(242);
+
+	var _MessageForm2 = _interopRequireDefault(_MessageForm);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	// Instantiate socket
+
+
+	// Custom components
+	var socket = io();
+
+	exports.default = _react2.default.createClass({
+	  displayName: 'MessageBox',
+
+	  getInitialState: function getInitialState() {
+	    return { data: [] };
+	  },
+	  getServerData: function getServerData() {
+	    //TODO Get old msgs from server to display
+	  },
+	  componentDidMount: function componentDidMount() {
+	    // Receive message
+	    socket.on('chat message', function (txt) {
+	      this.setState({ data: txt });
+	    }.bind(this));
+	  },
+	  handleMessageSend: function handleMessageSend(msg) {
+	    var messages = this.state.data;
+	    var newMessages = messages.concat([msg]);
+	    msg.id = Date.now();
+
+	    // Send message to others
+	    socket.emit('chat message', newMessages);
+	  },
+	  render: function render() {
+	    return _react2.default.createElement(
+	      'div',
+	      { className: 'messageBox' },
+	      _react2.default.createElement(
+	        'h1',
+	        null,
+	        'user_name'
+	      ),
+	      _react2.default.createElement(_MessageList2.default, { data: this.state.data }),
+	      _react2.default.createElement(_MessageForm2.default, { onMessageSend: this.handleMessageSend })
+	    );
+	  }
+	});
+
+/***/ },
+/* 240 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _Message = __webpack_require__(241);
+
+	var _Message2 = _interopRequireDefault(_Message);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _react2.default.createClass({
+	  displayName: 'MessageList',
+
+	  render: function render() {
+	    var msgLs = this.props.data.map(function (msg) {
+	      return _react2.default.createElement(
+	        _Message2.default,
+	        { key: msg.id },
+	        msg.text
+	      );
+	    });
+	    return _react2.default.createElement(
+	      'ul',
+	      { className: 'messageList' },
+	      msgLs
+	    );
+	  }
+	});
+
+	// Custom components
+
+/***/ },
+/* 241 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _react2.default.createClass({
+	  displayName: 'Message',
+
+	  render: function render() {
+	    return _react2.default.createElement(
+	      'li',
+	      null,
+	      this.props.children
+	    );
+	  }
+	});
+
+/***/ },
+/* 242 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _react2.default.createClass({
+	  displayName: 'MessageForm',
+
+	  getInitialState: function getInitialState() {
+	    return { text: '' };
+	  },
+	  handleMessageChange: function handleMessageChange(e) {
+	    this.setState({ text: e.target.value });
+	  },
+	  handleSend: function handleSend(e) {
+	    e.preventDefault();
+	    var msg = this.state.text.trim();
+
+	    if (!msg) {
+	      return;
+	    }
+
+	    // call to function that sends message
+	    this.props.onMessageSend({ text: msg });
+
+	    // clears input field
+	    this.setState({ text: '' });
+	  },
+	  render: function render() {
+	    return _react2.default.createElement(
+	      'form',
+	      { className: 'messageForm', onSubmit: this.handleSend },
+	      _react2.default.createElement('input', {
+	        type: 'text',
+	        placeholder: 'Type your message...',
+	        value: this.state.text,
+	        onChange: this.handleMessageChange
+	      }),
+	      _react2.default.createElement('input', {
+	        type: 'submit',
+	        value: 'Send'
+	      })
+	    );
+	  }
+	});
 
 /***/ }
 /******/ ]);

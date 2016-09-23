@@ -14,6 +14,7 @@ export default React.createClass({
     if(!msg) {
       return;
     }
+
     // call to function that sends message
     this.props.onMessageSend({text: msg});
 
