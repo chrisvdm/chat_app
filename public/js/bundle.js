@@ -27874,7 +27874,7 @@
 	      _react2.default.createElement(
 	        "h1",
 	        null,
-	        _react2.default.createElement("img", { src: "/assets/img/profile.png" }),
+	        _react2.default.createElement("img", { src: "/public/assets/img/default-pp.png" }),
 	        this.props.data
 	      )
 	    );

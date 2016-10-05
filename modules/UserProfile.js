@@ -6,7 +6,7 @@ export default React.createClass({
     return (
       <div className="userProfile">
       <h1>
-      <img src="/assets/img/profile.png"/>
+      <img src="/public/assets/img/default-pp.png"/>
       {this.props.data}</h1>
       </div>
     );

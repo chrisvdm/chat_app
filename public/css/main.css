@@ -23,7 +23,7 @@ body {
   text-decoration: none;
 }
 
-img {
+figure img {
   min-width: 100%;
 }
 
@@ -92,6 +92,10 @@ img {
 
 .usr-box {
   font-weight: 600;
+}
+
+.userProfile {
+  background: #fff;
 }
 
 .messageBox {
