@@ -27607,9 +27607,11 @@
 	        _react2.default.createElement('input', { type: 'text',
 	          placeholder: 'user_name',
 	          value: this.state.usr,
+	          required: '',
 	          onChange: this.handleUsrChange }),
 	        _react2.default.createElement('input', { type: 'password',
 	          placeholder: 'password',
+	          required: '',
 	          value: this.state.pw,
 	          onChange: this.handlePwChange }),
 	        _react2.default.createElement(
@@ -27665,14 +27667,16 @@
 
 	var _MessageForm2 = _interopRequireDefault(_MessageForm);
 
+	var _UserProfile = __webpack_require__(244);
+
+	var _UserProfile2 = _interopRequireDefault(_UserProfile);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	// Instantiate socket
-
-
-	// Custom components
 	var socket = io();
 
+	// Custom components
 	exports.default = _react2.default.createClass({
 	  displayName: 'MessageBox',
 
@@ -27700,11 +27704,7 @@
 	    return _react2.default.createElement(
 	      'div',
 	      { className: 'messageBox' },
-	      _react2.default.createElement(
-	        'h1',
-	        null,
-	        this.props.params.userName
-	      ),
+	      _react2.default.createElement(_UserProfile2.default, { data: this.props.params.userName }),
 	      _react2.default.createElement(_MessageList2.default, { data: this.state.data }),
 	      _react2.default.createElement(_MessageForm2.default, { onMessageSend: this.handleMessageSend, data: this.props.params.userName })
 	    );
@@ -27777,8 +27777,9 @@
 	      null,
 	      _react2.default.createElement(
 	        "div",
-	        { className: "usr-box" },
-	        this.props.user
+	        { className: "usr-box", "data-user": this.props.user },
+	        this.props.user,
+	        ":"
 	      ),
 	      _react2.default.createElement(
 	        "div",
@@ -27844,6 +27845,41 @@
 	      })
 	    );
 	  }
+	});
+
+/***/ },
+/* 244 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _react2.default.createClass({
+	  displayName: "UserProfile",
+
+
+	  render: function render() {
+	    return _react2.default.createElement(
+	      "div",
+	      { className: "userProfile" },
+	      _react2.default.createElement(
+	        "h1",
+	        null,
+	        _react2.default.createElement("img", { src: "/assets/img/profile.png" }),
+	        this.props.data
+	      )
+	    );
+	  }
+
 	});
 
 /***/ }

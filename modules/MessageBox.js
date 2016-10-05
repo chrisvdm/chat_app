@@ -3,6 +3,7 @@ import React from 'react';
 // Custom components
 import MessageList from './MessageList';
 import MessageForm from './MessageForm';
+import UserProfile from './UserProfile';
 
 // Instantiate socket
 var socket = io();
@@ -31,7 +32,7 @@ export default React.createClass({
   render: function() {
     return (
       <div className="messageBox">
-        <h1>{this.props.params.userName}</h1>
+        <UserProfile data={this.props.params.userName}/>
         <MessageList data={this.state.data}/>
         <MessageForm onMessageSend={this.handleMessageSend} data={this.props.params.userName}/>
       </div>

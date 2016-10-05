@@ -50,7 +50,7 @@ img {
   background: #f7e7f2;
   text-align: center;
   margin: 0 auto;
-  width: 40%;
+  /*width: 40%;*/
   min-height: 50vh;
   border: solid 5px #fff;
   padding: 2.5em;
@@ -96,6 +96,7 @@ img {
 
 .messageBox {
   height: 100vh;
+  background: #f7e7f2;
   position: relative;
 }
 
@@ -113,8 +114,7 @@ img {
 
 .messageForm {
   width: 100%;
-  background-color: #eee;
-  padding: 0.3125em;
+  background-color: #fafafa;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -138,7 +138,7 @@ img {
   appearance: none;
   width: 20%;
   color: #fafafa;
-  background-color:#00ffd9;
+  background-color: #b9dddf;
   text-align: center;
   font-weight: bold;
   border-radius: 0;
@@ -207,4 +207,40 @@ a {
 
 .small-print {
   font-size: 0.625em;
+}
+
+@media (min-width: 960px) {
+  .box {
+    width: 40%;
+  }
+
+  .messageForm {
+    position: absolute;
+  }
+
+  .messageForm input[type="submit"] {
+    width: 10%;
+  }
+
+  .messageForm input[type="submit"]:hover {
+    background:  #dfb9d7;
+    cursor: pointer;
+  }
+
+  .messageForm input[type="text"] {
+    width: 90%;
+  }
+
+  .messageBox {
+    height: 90vh;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 0.625em;
+    border: solid 2px #fff;
+    padding: 0.625em;
+  }
+
+  .userProfile img {
+    width: 50px;
+  }
 }

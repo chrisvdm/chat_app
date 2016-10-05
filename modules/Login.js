@@ -38,9 +38,11 @@ export default React.createClass({
           <input type="text"
           placeholder="user_name"
           value={this.state.usr}
+          required=''
           onChange={this.handleUsrChange}/>
           <input type="password"
           placeholder="password"
+          required=''
           value={this.state.pw}
           onChange={this.handlePwChange}/>
 
@@ -51,8 +53,6 @@ export default React.createClass({
 
           <p className="small-print"><Link to="/lost-password">Lost password/username?</Link>
            Or do you need to <Link to="/signup">signup</Link>?</p>
-
-
         </form>
       </section>
     )
