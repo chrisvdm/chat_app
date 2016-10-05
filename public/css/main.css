@@ -77,17 +77,25 @@ figure img {
   text-align: left;
 }
 
-.box form input[type="text"], .box form input[type="password"] {
-  width: 100%;
-  margin-top: 1.25em;
+form input[type="text"], form input[type="password"] {
+
   padding: 0.625em;
   border: none;
   border-bottom: solid 2px #fff;
 }
 
-.box form input[type="text"]:focus, .box form input[type="password"]:focus {
+.box form input[type="text"], .box form input[type="password"]{
+  width: 100%;
+  margin-top: 1.25em;
+}
+
+form input[type="text"]:focus, form input[type="password"]:focus  {
   outline: none;
   border-bottom: solid 2px #b9dddf;
+}
+
+input:focus {
+  outline: none;
 }
 
 .usr-box {
@@ -132,11 +140,11 @@ figure img {
   display: inline-block;
 }
 
-.messageForm input[type="text"]{
+.messageForm input[type="text"] {
   width: 80%;
 }
 
-.messageForm input[type="submit"]{
+.messageForm input[type="submit"] {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -146,6 +154,7 @@ figure img {
   text-align: center;
   font-weight: bold;
   border-radius: 0;
+  height: 100%;
 }
 
 .message {
