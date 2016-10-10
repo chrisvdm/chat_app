@@ -1,13 +1,15 @@
 import React from 'react';
 
+import Menu from './Menu';
+
 export default React.createClass({
 
   render: function() {
     return (
       <div className="userProfile">
-      <h1>
       <img src="/public/assets/img/default-pp.png"/>
-      {this.props.data}</h1>
+      <h1>{this.props.data}</h1>
+      <Menu/>
       </div>
     );
   }

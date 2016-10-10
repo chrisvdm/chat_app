@@ -17,6 +17,6 @@
     "webpack": "^1.13.2"
   },
   "scripts": {
-    "build": "webpack index.js public/js/bundle.js --module-bind 'js=babel-loader'"
+    "build": "webpack index.js public/js/bundle.js --module-bind 'js=babel-loader' --watch"
   }
 }

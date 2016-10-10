@@ -27391,6 +27391,10 @@
 
 	var _Login2 = _interopRequireDefault(_Login);
 
+	var _Account = __webpack_require__(246);
+
+	var _Account2 = _interopRequireDefault(_Account);
+
 	var _MessageBox = __webpack_require__(240);
 
 	var _MessageBox2 = _interopRequireDefault(_MessageBox);
@@ -27402,6 +27406,7 @@
 	  { path: '/', component: _App2.default },
 	  _react2.default.createElement(_reactRouter.IndexRoute, { component: _Home2.default }),
 	  _react2.default.createElement(_reactRouter.Route, { path: '/login', component: _Login2.default }),
+	  _react2.default.createElement(_reactRouter.Route, { path: '/account', component: _Account2.default }),
 	  _react2.default.createElement(_reactRouter.Route, { path: '/:userName', component: _MessageBox2.default })
 	);
 
@@ -27573,6 +27578,7 @@
 
 	    var username = this.state.usr.trim();
 	    var password = this.state.pw.trim();
+
 	    if (username === '' && password === '') {
 	      _reactRouter.browserHistory.push('/');
 	    }
@@ -27851,7 +27857,7 @@
 /* 244 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -27861,25 +27867,139 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _Menu = __webpack_require__(245);
+
+	var _Menu2 = _interopRequireDefault(_Menu);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	exports.default = _react2.default.createClass({
-	  displayName: "UserProfile",
+	  displayName: 'UserProfile',
 
 
 	  render: function render() {
 	    return _react2.default.createElement(
-	      "div",
-	      { className: "userProfile" },
+	      'div',
+	      { className: 'userProfile' },
+	      _react2.default.createElement('img', { src: '/public/assets/img/default-pp.png' }),
 	      _react2.default.createElement(
-	        "h1",
+	        'h1',
 	        null,
-	        _react2.default.createElement("img", { src: "/public/assets/img/default-pp.png" }),
 	        this.props.data
-	      )
+	      ),
+	      _react2.default.createElement(_Menu2.default, null)
 	    );
 	  }
 
+	});
+
+/***/ },
+/* 245 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(172);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _react2.default.createClass({
+	  displayName: 'Menu',
+
+	  showMenu: function showMenu() {
+	    console.log('Menu clicked');
+	    var list = _('.drop-down');
+	    if (list.style.display === 'none') {
+	      list.style.display = 'block';
+	    } else {
+	      list.style.display = 'none';
+	    }
+	  },
+	  render: function render() {
+	    return _react2.default.createElement(
+	      'div',
+	      { onClick: this.showMenu },
+	      _react2.default.createElement(
+	        'h3',
+	        null,
+	        _react2.default.createElement('i', { className: 'fa fa-bars' })
+	      ),
+	      _react2.default.createElement(
+	        'ul',
+	        { className: 'drop-down' },
+	        _react2.default.createElement(
+	          'li',
+	          null,
+	          _react2.default.createElement(
+	            _reactRouter.Link,
+	            { to: '/account/', data: this.props.data },
+	            'Account'
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'li',
+	          null,
+	          _react2.default.createElement(
+	            _reactRouter.Link,
+	            { to: '/' },
+	            'Logout'
+	          )
+	        )
+	      )
+	    );
+	  }
+	});
+
+/***/ },
+/* 246 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(172);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _react2.default.createClass({
+	  displayName: 'Account',
+
+	  changeDetails: function changeDetails(e) {
+	    e.preventDefault();
+	    console.log('This submitted');
+	  },
+	  render: function render() {
+	    return _react2.default.createElement(
+	      'section',
+	      { className: 'box' },
+	      _react2.default.createElement(
+	        'h1',
+	        null,
+	        'Account Setting'
+	      ),
+	      _react2.default.createElement(
+	        'form',
+	        { onSubmit: this.changeDetails },
+	        _react2.default.createElement('input', { type: 'text', value: this.props.data }),
+	        _react2.default.createElement('input', { type: 'submit', value: 'Save' })
+	      )
+	    );
+	  }
 	});
 
 /***/ }
