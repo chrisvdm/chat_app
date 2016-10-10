@@ -183,6 +183,7 @@ input:focus {
   box-shadow: none;
   margin-left: 0.625em;
   transition: 0.25s ease;
+  border-style: solid;
 }
 
 .btn-border:hover {
@@ -221,6 +222,22 @@ a {
 
 .active {
   color: #ccc;
+}
+
+.danger {
+  color: #f40964;
+}
+
+.btn-danger {
+  color: #fff;
+  background: #f40964;
+  border-color: #f40964;
+}
+
+.btn-danger:hover {
+  background: #fff;
+  color: #f40964;
+  border-color: #fff;
 }
 
 .small-print {

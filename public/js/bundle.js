@@ -27887,7 +27887,11 @@
 	        null,
 	        this.props.data
 	      ),
-	      _react2.default.createElement(_Menu2.default, null)
+	      _react2.default.createElement(
+	        _Menu2.default,
+	        null,
+	        this.props.data
+	      )
 	    );
 	  }
 
@@ -27940,7 +27944,7 @@
 	          null,
 	          _react2.default.createElement(
 	            _reactRouter.Link,
-	            { to: '/account/', data: this.props.data },
+	            { to: '/account/', data: this.children },
 	            'Account'
 	          )
 	        ),
@@ -27979,24 +27983,87 @@
 	exports.default = _react2.default.createClass({
 	  displayName: 'Account',
 
-	  changeDetails: function changeDetails(e) {
+	  changeUsr: function changeUsr(e) {
 	    e.preventDefault();
-	    console.log('This submitted');
+	    console.log('New Username');
+	  },
+	  changePw: function changePw(e) {
+	    e.preventDefault();
+	    console.log('New password');
+	  },
+	  deleteAccount: function deleteAccount(e) {
+	    e.preventDefault();
+	    _reactRouter.browserHistory.push('/login');
 	  },
 	  render: function render() {
 	    return _react2.default.createElement(
 	      'section',
 	      { className: 'box' },
 	      _react2.default.createElement(
-	        'h1',
+	        'h3',
 	        null,
 	        'Account Setting'
 	      ),
 	      _react2.default.createElement(
 	        'form',
-	        { onSubmit: this.changeDetails },
+	        { onSubmit: this.changeUsr },
+	        _react2.default.createElement(
+	          'label',
+	          null,
+	          'Username'
+	        ),
 	        _react2.default.createElement('input', { type: 'text', value: this.props.data }),
-	        _react2.default.createElement('input', { type: 'submit', value: 'Save' })
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'btn-set' },
+	          _react2.default.createElement(
+	            'button',
+	            { className: 'btn btn-fill', type: 'submit' },
+	            'Change'
+	          )
+	        )
+	      ),
+	      _react2.default.createElement(
+	        'form',
+	        { onSubmit: this.changePw },
+	        _react2.default.createElement(
+	          'label',
+	          null,
+	          'Password'
+	        ),
+	        _react2.default.createElement('input', { type: 'password', value: this.props.data }),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'btn-set' },
+	          _react2.default.createElement(
+	            'button',
+	            { className: 'btn btn-fill', type: 'submit' },
+	            'Change'
+	          )
+	        )
+	      ),
+	      _react2.default.createElement(
+	        'h3',
+	        { className: 'danger' },
+	        'Delete Account'
+	      ),
+	      _react2.default.createElement(
+	        'form',
+	        { onSubmit: this.deleteAccount },
+	        _react2.default.createElement(
+	          'p',
+	          null,
+	          'Deleting an account is a permanent action. Think before you delete'
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'btn-set' },
+	          _react2.default.createElement(
+	            'button',
+	            { className: 'btn btn-danger', type: 'submit' },
+	            'Delete Account'
+	          )
+	        )
 	      )
 	    );
 	  }

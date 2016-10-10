@@ -9,7 +9,9 @@ export default React.createClass({
       <div className="userProfile">
       <img src="/public/assets/img/default-pp.png"/>
       <h1>{this.props.data}</h1>
-      <Menu/>
+      <Menu>
+        {this.props.data}
+      </Menu>
       </div>
     );
   }

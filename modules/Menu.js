@@ -17,7 +17,7 @@ export default React.createClass({
       <div onClick={this.showMenu}>
       <h3><i className='fa fa-bars'></i></h3>
       <ul className="drop-down">
-        <li><Link to="/account/" data={this.props.data} >Account</Link></li>
+        <li><Link to="/account/" data={this.children} >Account</Link></li>
         <li><Link to="/">Logout</Link></li>
       </ul>
       </div>
